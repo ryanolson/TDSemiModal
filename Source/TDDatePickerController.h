@@ -10,10 +10,10 @@
 
 
 @interface TDDatePickerController : TDSemiModalViewController {
-	id delegate;
+	__weak id delegate;
 }
 
-@property (nonatomic, strong) IBOutlet id delegate;
+@property (nonatomic, weak) IBOutlet id delegate;
 @property (nonatomic, strong) IBOutlet UIDatePicker* datePicker;
 
 -(IBAction)saveDateEdit:(id)sender;
@@ -22,9 +22,9 @@
 
 @end
 
-@interface NSObject (TDDatePickerControllerDelegate)
--(void)datePickerSetDate:(TDDatePickerController*)viewController;
--(void)datePickerClearDate:(TDDatePickerController*)viewController;
--(void)datePickerCancel:(TDDatePickerController*)viewController;
+@protocol TDDatePickerDelegate <NSObject>
+@optional
+-(void)datePicker:(TDDatePickerController*)viewController didSaveWithDate:(NSDate *)date;
+-(void)datePickerDidCancel:(TDDatePickerController*)viewController;
 @end
 

@@ -33,20 +33,19 @@
 #pragma mark Actions
 
 -(IBAction)saveDateEdit:(id)sender {
-	if([self.delegate respondsToSelector:@selector(datePickerSetDate:)]) {
-		[self.delegate datePickerSetDate:self];
+	if([self.delegate respondsToSelector:@selector(datePicker:didSaveWithDate:)]) {
+		[self.delegate datePicker:self didSaveWithDate:self.datePicker.date];
 	}
 }
 
 -(IBAction)clearDateEdit:(id)sender {
-	if([self.delegate respondsToSelector:@selector(datePickerClearDate:)]) {
-		[self.delegate datePickerClearDate:self];
-	}
+    [self.datePicker setDate:[NSDate date] animated:YES];
+    
 }
 
 -(IBAction)cancelDateEdit:(id)sender {
-	if([self.delegate respondsToSelector:@selector(datePickerCancel:)]) {
-		[self.delegate datePickerCancel:self];
+	if([self.delegate respondsToSelector:@selector(datePickerDidCancel:)]) {
+		[self.delegate datePickerDidCancel:self];
 	} else {
 		// just dismiss the view automatically?
 	}
