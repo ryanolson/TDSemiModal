@@ -53,6 +53,13 @@
 	}
 }
 
+-(void)datePickerValueChanged:(id)sender
+{
+    if ([self.delegate respondsToSelector:@selector(datePicker:dateDidChange:)]) {
+        [self.delegate datePicker:self dateDidChange:self.datePicker.date];
+    }
+}
+
 #pragma mark -
 #pragma mark Memory Management
 

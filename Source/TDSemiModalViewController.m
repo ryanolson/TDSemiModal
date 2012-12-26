@@ -13,7 +13,8 @@
 
 -(void)viewDidLoad {
     [super viewDidLoad];
-	self.coverView = [[UIView alloc] initWithFrame:[UIScreen mainScreen].applicationFrame];
+    CGRect coverViewFrame = [UIScreen mainScreen].applicationFrame;
+	self.coverView = [[UIView alloc] initWithFrame:coverViewFrame];
 
 	self.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 

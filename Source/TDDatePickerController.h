@@ -19,6 +19,7 @@
 -(IBAction)saveDateEdit:(id)sender;
 -(IBAction)clearDateEdit:(id)sender;
 -(IBAction)cancelDateEdit:(id)sender;
+-(IBAction)datePickerValueChanged:(id)sender;
 
 @end
 
@@ -26,5 +27,6 @@
 @optional
 -(void)datePicker:(TDDatePickerController*)viewController didSaveWithDate:(NSDate *)date;
 -(void)datePickerDidCancel:(TDDatePickerController*)viewController;
+-(void)datePicker:(TDDatePickerController*)viewController dateDidChange:(NSDate *)date;
 @end
 
