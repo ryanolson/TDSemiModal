@@ -37,9 +37,9 @@
 
 -(void)presentSemiModalViewController:(TDSemiModalViewController *)vc overRootView:(id)view
 {
-	UIView* modalView = vc.view;
-	UIView* coverView = vc.coverView;
-    UIView *rootView = view;
+	UIView * modalView = vc.view;
+	UIView * coverView = vc.coverView;
+    UIView * rootView   = view;
     
 	coverView.frame = rootView.bounds;
     coverView.alpha = 0.0f;

@@ -26,13 +26,18 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)viewDidUnload
+{
+    self.picker = nil;
+    self.delegate = nil;
 }
 
 -(void)onCancel:(id)sender
@@ -45,7 +50,11 @@
 -(void)onSave:(id)sender
 {
     if ([self.delegate respondsToSelector:@selector(picker:didSelectComponents:)]) {
-        [self.delegate picker:self didSelectComponents:nil];
+        NSMutableArray * componentIndexes = [NSMutableArray arrayWithCapacity:self.picker.numberOfComponents];
+        for (int i=0; i<self.picker.numberOfComponents; i++) {
+            [componentIndexes setObject:@([self.picker selectedRowInComponent:i]) atIndexedSubscript:i];
+        }
+        [self.delegate picker:self didSelectComponents:componentIndexes];
     }
 }
 

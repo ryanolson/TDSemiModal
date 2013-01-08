@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "TDSemiModal.h"
 
-@interface ROPickerController : TDSemiModalViewController <UIPickerViewDataSource, UIPickerViewDelegate>
+@interface ROPickerController : TDSemiModalViewController
 
 @property (nonatomic, weak) id delegate;
 @property (nonatomic, strong) IBOutlet UIPickerView * picker;
